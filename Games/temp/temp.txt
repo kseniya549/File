@@ -1,0 +1,13 @@
+Каталог C:\Users\1\IdeaProjects\File\Games уже существует
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\src
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\res
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\savegames
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\temp
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\src\main
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\src\test
+Не удалось создать файл C:\Users\1\IdeaProjects\File\Games\src\main\Main.java
+Не удалось создать файл C:\Users\1\IdeaProjects\File\Games\src\main\Utils.java
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\res\drawables
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\res\vectors
+Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\res\icons
+Не удалось создать файл C:\Users\1\IdeaProjects\File\Games\temp\temp.txt
