@@ -1,23 +1,21 @@
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main{
+public class Main {
+    
     public static void main(String[] args) {
-        String gamesPath = "C:\\Users\\1\\IdeaProjects\\File\\Games";
+        // Укажите путь к папке Games в зависимости от вашей операционной системы
+        String gamesPath = "D:\\Games"; // Измените этот путь под вашу систему
 
-        // Создаем StringBuilder для логирования
         StringBuilder log = new StringBuilder();
 
         try {
-            // Создаем основную директорию Games
+            // Создаем основную директорию Games (если она еще не существует)
             File gamesDir = new File(gamesPath);
             if (!gamesDir.exists()) {
-                if (gamesDir.mkdir()) {
-                    log.append("Каталог ").append(gamesPath).append(" создан успешно\n");
-                } else {
-                    log.append("Не удалось создать каталог ").append(gamesPath).append("\n");
-                }
+                GameInstaller.mkdir(gamesDir, log);
             } else {
                 log.append("Каталог ").append(gamesPath).append(" уже существует\n");
             }
@@ -25,58 +23,38 @@ public class Main{
             // Создаем поддиректории в Games: src, res, savegames, temp
             String[] subDirs = {"src", "res", "savegames", "temp"};
             for (String dirName : subDirs) {
-                File dir = new File(gamesPath + File.separator + dirName);
-                if (dir.mkdir()) {
-                    log.append("Каталог ").append(dir.getAbsolutePath()).append(" создан успешно\n");
-                } else {
-                    log.append("Не удалось создать каталог ").append(dir.getAbsolutePath()).append("\n");
-                }
+                File dir = new File(gamesPath, dirName);
+                GameInstaller.mkdir(dir, log);
             }
 
             // Создаем поддиректории в src: main, test
-            String srcPath = gamesPath + File.separator + "src";
+            File srcDir = new File(gamesPath, "src");
             String[] srcSubDirs = {"main", "test"};
             for (String dirName : srcSubDirs) {
-                File dir = new File(srcPath + File.separator + dirName);
-                if (dir.mkdir()) {
-                    log.append("Каталог ").append(dir.getAbsolutePath()).append(" создан успешно\n");
-                } else {
-                    log.append("Не удалось создать каталог ").append(dir.getAbsolutePath()).append("\n");
-                }
+                File dir = new File(srcDir, dirName);
+                GameInstaller.mkdir(dir, log);
             }
 
             // Создаем файлы в main: Main.java, Utils.java
-            String mainPath = srcPath + File.separator + "main";
+            File mainDir = new File(srcDir, "main");
             String[] mainFiles = {"Main.java", "Utils.java"};
             for (String fileName : mainFiles) {
-                File file = new File(mainPath + File.separator + fileName);
-                if (file.createNewFile()) {
-                    log.append("Файл ").append(file.getAbsolutePath()).append(" создан успешно\n");
-                } else {
-                    log.append("Не удалось создать файл ").append(file.getAbsolutePath()).append("\n");
-                }
+                File file = new File(mainDir, fileName);
+                GameInstaller.createFile(file, log);
             }
 
             // Создаем поддиректории в res: drawables, vectors, icons
-            String resPath = gamesPath + File.separator + "res";
+            File resDir = new File(gamesPath, "res");
             String[] resSubDirs = {"drawables", "vectors", "icons"};
             for (String dirName : resSubDirs) {
-                File dir = new File(resPath + File.separator + dirName);
-                if (dir.mkdir()) {
-                    log.append("Каталог ").append(dir.getAbsolutePath()).append(" создан успешно\n");
-                } else {
-                    log.append("Не удалось создать каталог ").append(dir.getAbsolutePath()).append("\n");
-                }
+                File dir = new File(resDir, dirName);
+                GameInstaller.mkdir(dir, log);
             }
 
             // Создаем файл temp.txt в директории temp
-            String tempPath = gamesPath + File.separator + "temp";
-            File tempFile = new File(tempPath + File.separator + "temp.txt");
-            if (tempFile.createNewFile()) {
-                log.append("Файл ").append(tempFile.getAbsolutePath()).append(" создан успешно\n");
-            } else {
-                log.append("Не удалось создать файл ").append(tempFile.getAbsolutePath()).append("\n");
-            }
+            File tempDir = new File(gamesPath, "temp");
+            File tempFile = new File(tempDir, "temp.txt");
+            GameInstaller.createFile(tempFile, log);
 
             // Записываем лог в файл temp.txt
             try (FileWriter writer = new FileWriter(tempFile)) {
@@ -85,9 +63,9 @@ public class Main{
                 System.out.println("Лог записан в файл: " + tempFile.getAbsolutePath());
             }
 
-        } catch (IOException ex) {
-            System.err.println("Ошибка при работе с файловой системой: " + ex.getMessage());
-            ex.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("Ошибка при работе с файловой системой: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
