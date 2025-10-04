@@ -4,10 +4,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         // Укажите путь к папке Games в зависимости от вашей операционной системы
-        String gamesPath = "D:\\Games"; // Измените этот путь под вашу систему
+        String gamesPath = "C:\\Users\\1\\IdeaProjects\\File\\Games\\";
 
         StringBuilder log = new StringBuilder();
 

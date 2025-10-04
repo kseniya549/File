@@ -1,4 +1,4 @@
-Каталог C:\Users\1\IdeaProjects\File\Games уже существует
+Каталог C:\Users\1\IdeaProjects\File\Games\ уже существует
 Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\src
 Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\res
 Не удалось создать каталог C:\Users\1\IdeaProjects\File\Games\savegames
